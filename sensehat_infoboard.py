@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from sense_hat import SenseHat
 import time
@@ -29,6 +29,7 @@ warning_color = (255, 204, 0)
 danger_color = (204, 0, 0)
 temp_color = (51, 204, 255)
 current_temp = 0
+global test_var
 
 def digit_T(color):
   X = color
@@ -682,6 +683,7 @@ display_info = True
 while True:
   selection = False
   events = sense.stick.get_events()
+  test_var =  "test"
   for event in events:
     # Skip releases
     if display_info:
@@ -702,7 +704,7 @@ while True:
             current_mode = sensors[index % 7]
             update_screen(current_mode, show_letter = True)
             time.sleep(1)
-        print(index)
+        print("%s"%test_var)
 
     if event.action == "released":
         if event.direction == "middle":
